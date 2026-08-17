@@ -1,0 +1,9 @@
+[
+  { "id": "umrah", "name": "Umrah Posters", "icon": "mosque", "color": "#6C2BD9", "sort_order": 0 },
+  { "id": "business", "name": "Business Flyers", "icon": "business_center", "color": "#0EA5E9", "sort_order": 1 },
+  { "id": "college", "name": "College Admission", "icon": "school", "color": "#16A34A", "sort_order": 2 },
+  { "id": "travel", "name": "Travel Thumbnails", "icon": "landscape", "color": "#F59E0B", "sort_order": 3 },
+  { "id": "sale", "name": "Sale / Offer Posters", "icon": "local_offer", "color": "#EF4444", "sort_order": 4 },
+  { "id": "announcements", "name": "Announcements", "icon": "campaign", "color": "#7C3AED", "sort_order": 5 },
+  { "id": "social", "name": "Social Media Posts", "icon": "share", "color": "#EC4899", "sort_order": 6 }
+]

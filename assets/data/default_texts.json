@@ -1,0 +1,44 @@
+{
+  "umrah": {
+    "titles": ["Umrah Package 2026", "Blessed Umrah Journey", "Special Umrah Offer"],
+    "subtitles": ["All-inclusive packages", "5-star hotels near Haram", "Book your spiritual journey"],
+    "details": ["Flights • Hotels • Visa • Transport", "15 / 21 / 30 days packages", "Group and family deals available"],
+    "prices": ["From $1299", "From $999", "Best Price"]
+  },
+  "business": {
+    "titles": ["Grow Your Business", "Grand Opening", "Professional Services"],
+    "subtitles": ["Trusted by thousands", "Quality you can rely on", "Contact us today"],
+    "details": ["Consulting • Support • Delivery", "Serving you since 2015", "Free quote available"],
+    "prices": ["Free Quote", "Best Value", "Save 20%"]
+  },
+  "college": {
+    "titles": ["Admissions Open 2026", "Shape Your Future", "Enroll Now"],
+    "subtitles": ["Limited seats available", "Scholarships available", "Apply before the deadline"],
+    "details": ["BSc • Nursing • Diploma programs", "Experienced faculty & modern labs", "Placement assistance"],
+    "prices": ["Apply Now", "Seats Filling", "Enroll Today"]
+  },
+  "travel": {
+    "titles": ["Epic Road Trip", "Explore The Wild", "Adventure Awaits"],
+    "subtitles": ["Watch the full journey", "Nature at its best", "Subscribe for more"],
+    "details": ["New episode every week", "Filmed on location", "Tap to watch now"],
+    "prices": ["NEW", "EP 12", "WATCH"]
+  },
+  "sale": {
+    "titles": ["Mega Sale", "Up To 50% Off", "Limited Time Offer"],
+    "subtitles": ["Hurry, ends soon!", "Shop now and save", "Best deals of the season"],
+    "details": ["On all items in store", "Online & in-store", "While stocks last"],
+    "prices": ["50% OFF", "70% OFF", "SALE"]
+  },
+  "announcements": {
+    "titles": ["Important Notice", "We Are Hiring", "Event Announcement"],
+    "subtitles": ["Please read carefully", "Join our team", "Mark your calendar"],
+    "details": ["Effective immediately", "Apply with your CV", "Limited seats available"],
+    "prices": ["NOTICE", "HIRING", "EVENT"]
+  },
+  "social": {
+    "titles": ["New Post", "Follow Us", "Trending Now"],
+    "subtitles": ["Stay connected", "Like & Share", "Tap the link in bio"],
+    "details": ["Daily updates & tips", "Join the community", "Don't miss out"],
+    "prices": ["NEW", "HOT", "LIVE"]
+  }
+}

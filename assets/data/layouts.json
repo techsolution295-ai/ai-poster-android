@@ -1,0 +1,196 @@
+[
+  {
+    "id": "layout_01",
+    "name": "Title Top + Details",
+    "overlay": { "type": "gradient", "fromHex": "#22000000", "toHex": "#CC000000" },
+    "layers": [
+      { "type": "image", "role": "logo", "x": 0.06, "y": 0.05, "width": 0.15, "height": 0.15 },
+      { "type": "text", "role": "title", "x": 0.06, "y": 0.08, "width": 0.88, "height": 0.16, "fontSizeFactor": 0.1, "colorHex": "#FFFFFFFF", "bold": true, "align": "center" },
+      { "type": "text", "role": "subtitle", "x": 0.1, "y": 0.24, "width": 0.8, "height": 0.07, "fontSizeFactor": 0.045, "colorHex": "#FFFDE68A", "align": "center" },
+      { "type": "shape", "role": "details", "shape": "rounded", "x": 0.08, "y": 0.62, "width": 0.84, "height": 0.2, "fillHex": "#AA111827", "cornerRadius": 0.04 },
+      { "type": "text", "role": "details", "x": 0.11, "y": 0.65, "width": 0.78, "height": 0.14, "fontSizeFactor": 0.034, "colorHex": "#FFFFFFFF", "align": "center" },
+      { "type": "shape", "role": "contact", "shape": "rect", "x": 0.0, "y": 0.9, "width": 1.0, "height": 0.1, "fillHex": "#CC6C2BD9" },
+      { "type": "text", "role": "contact", "x": 0.06, "y": 0.925, "width": 0.88, "height": 0.05, "fontSizeFactor": 0.036, "colorHex": "#FFFFFFFF", "align": "center" }
+    ]
+  },
+  {
+    "id": "layout_02",
+    "name": "Center Bold + Price",
+    "overlay": { "type": "solid", "colorHex": "#88000000" },
+    "layers": [
+      { "type": "text", "role": "title", "x": 0.06, "y": 0.4, "width": 0.7, "height": 0.2, "fontSizeFactor": 0.12, "colorHex": "#FFFFFFFF", "bold": true, "align": "center" },
+      { "type": "text", "role": "subtitle", "x": 0.1, "y": 0.62, "width": 0.62, "height": 0.07, "fontSizeFactor": 0.045, "colorHex": "#FFF3F4F6", "align": "center" },
+      { "type": "shape", "role": "price", "shape": "circle", "x": 0.66, "y": 0.08, "width": 0.28, "height": 0.28, "fillHex": "#FFF59E0B" },
+      { "type": "text", "role": "price", "x": 0.66, "y": 0.17, "width": 0.28, "height": 0.1, "fontSizeFactor": 0.05, "colorHex": "#FF111827", "bold": true, "align": "center" },
+      { "type": "image", "role": "logo", "x": 0.06, "y": 0.06, "width": 0.14, "height": 0.14 },
+      { "type": "text", "role": "contact", "x": 0.06, "y": 0.9, "width": 0.88, "height": 0.05, "fontSizeFactor": 0.034, "colorHex": "#FFFFFFFF", "align": "center" }
+    ]
+  },
+  {
+    "id": "layout_03",
+    "name": "Split Panel",
+    "overlay": { "type": "gradient", "fromHex": "#00000000", "toHex": "#33000000" },
+    "layers": [
+      { "type": "shape", "role": "overlay", "shape": "rect", "x": 0.5, "y": 0.0, "width": 0.5, "height": 1.0, "fillHex": "#E6111827" },
+      { "type": "image", "role": "logo", "x": 0.55, "y": 0.07, "width": 0.14, "height": 0.14 },
+      { "type": "text", "role": "title", "x": 0.54, "y": 0.32, "width": 0.42, "height": 0.22, "fontSizeFactor": 0.09, "colorHex": "#FFFFFFFF", "bold": true, "align": "left" },
+      { "type": "text", "role": "subtitle", "x": 0.54, "y": 0.55, "width": 0.42, "height": 0.08, "fontSizeFactor": 0.04, "colorHex": "#FFF59E0B", "align": "left" },
+      { "type": "text", "role": "details", "x": 0.54, "y": 0.65, "width": 0.42, "height": 0.15, "fontSizeFactor": 0.032, "colorHex": "#FFE5E7EB", "align": "left" },
+      { "type": "text", "role": "contact", "x": 0.54, "y": 0.9, "width": 0.42, "height": 0.06, "fontSizeFactor": 0.032, "colorHex": "#FFFFFFFF", "align": "left" }
+    ]
+  },
+  {
+    "id": "layout_04",
+    "name": "Transparent Box Center",
+    "overlay": { "type": "solid", "colorHex": "#55000000" },
+    "layers": [
+      { "type": "shape", "role": "details", "shape": "rounded", "x": 0.12, "y": 0.3, "width": 0.76, "height": 0.4, "fillHex": "#99000000", "cornerRadius": 0.03 },
+      { "type": "text", "role": "title", "x": 0.16, "y": 0.35, "width": 0.68, "height": 0.16, "fontSizeFactor": 0.09, "colorHex": "#FFFFFFFF", "bold": true, "align": "center" },
+      { "type": "text", "role": "subtitle", "x": 0.18, "y": 0.51, "width": 0.64, "height": 0.07, "fontSizeFactor": 0.04, "colorHex": "#FFFDE68A", "align": "center" },
+      { "type": "text", "role": "details", "x": 0.18, "y": 0.58, "width": 0.64, "height": 0.1, "fontSizeFactor": 0.03, "colorHex": "#FFE5E7EB", "align": "center" },
+      { "type": "image", "role": "logo", "x": 0.44, "y": 0.16, "width": 0.12, "height": 0.12 },
+      { "type": "text", "role": "contact", "x": 0.12, "y": 0.88, "width": 0.76, "height": 0.05, "fontSizeFactor": 0.032, "colorHex": "#FFFFFFFF", "align": "center" }
+    ]
+  },
+  {
+    "id": "layout_05",
+    "name": "College Admission",
+    "overlay": { "type": "gradient", "fromHex": "#DD1E3A8A", "toHex": "#99000000" },
+    "layers": [
+      { "type": "text", "role": "title", "x": 0.06, "y": 0.07, "width": 0.88, "height": 0.15, "fontSizeFactor": 0.088, "colorHex": "#FFFFFFFF", "bold": true, "align": "center" },
+      { "type": "shape", "role": "price", "shape": "rounded", "x": 0.32, "y": 0.23, "width": 0.36, "height": 0.08, "fillHex": "#FFF59E0B", "cornerRadius": 0.04 },
+      { "type": "text", "role": "price", "x": 0.32, "y": 0.242, "width": 0.36, "height": 0.05, "fontSizeFactor": 0.038, "colorHex": "#FF111827", "bold": true, "align": "center" },
+      { "type": "shape", "role": "details", "shape": "rounded", "x": 0.08, "y": 0.55, "width": 0.84, "height": 0.28, "fillHex": "#AA111827", "cornerRadius": 0.04 },
+      { "type": "text", "role": "details", "x": 0.11, "y": 0.58, "width": 0.78, "height": 0.2, "fontSizeFactor": 0.034, "colorHex": "#FFFFFFFF", "align": "left" },
+      { "type": "image", "role": "logo", "x": 0.06, "y": 0.06, "width": 0.13, "height": 0.13 },
+      { "type": "text", "role": "contact", "x": 0.06, "y": 0.9, "width": 0.88, "height": 0.05, "fontSizeFactor": 0.034, "colorHex": "#FFFDE68A", "align": "center" }
+    ]
+  },
+  {
+    "id": "layout_06",
+    "name": "Travel Thumbnail",
+    "overlay": { "type": "gradient", "fromHex": "#22000000", "toHex": "#CC000000" },
+    "layers": [
+      { "type": "text", "role": "title", "x": 0.05, "y": 0.34, "width": 0.9, "height": 0.32, "fontSizeFactor": 0.17, "colorHex": "#FFFFFFFF", "bold": true, "align": "center" },
+      { "type": "shape", "role": "subtitle", "shape": "rounded", "x": 0.32, "y": 0.82, "width": 0.36, "height": 0.08, "fillHex": "#CCEF4444", "cornerRadius": 0.05 },
+      { "type": "text", "role": "subtitle", "x": 0.32, "y": 0.832, "width": 0.36, "height": 0.05, "fontSizeFactor": 0.036, "colorHex": "#FFFFFFFF", "bold": true, "align": "center" },
+      { "type": "image", "role": "logo", "x": 0.06, "y": 0.06, "width": 0.14, "height": 0.14 }
+    ]
+  },
+  {
+    "id": "layout_07",
+    "name": "Business Flyer",
+    "overlay": { "type": "gradient", "fromHex": "#00000000", "toHex": "#DD0F172A" },
+    "layers": [
+      { "type": "shape", "role": "price", "shape": "circle", "x": 0.64, "y": 0.05, "width": 0.3, "height": 0.3, "fillHex": "#FFF59E0B" },
+      { "type": "text", "role": "price", "x": 0.64, "y": 0.15, "width": 0.3, "height": 0.1, "fontSizeFactor": 0.05, "colorHex": "#FF111827", "bold": true, "align": "center" },
+      { "type": "text", "role": "title", "x": 0.06, "y": 0.55, "width": 0.88, "height": 0.16, "fontSizeFactor": 0.09, "colorHex": "#FFFFFFFF", "bold": true, "align": "left" },
+      { "type": "text", "role": "details", "x": 0.06, "y": 0.71, "width": 0.7, "height": 0.14, "fontSizeFactor": 0.033, "colorHex": "#FFE5E7EB", "align": "left" },
+      { "type": "image", "role": "logo", "x": 0.06, "y": 0.06, "width": 0.15, "height": 0.15 },
+      { "type": "text", "role": "contact", "x": 0.06, "y": 0.9, "width": 0.88, "height": 0.06, "fontSizeFactor": 0.034, "colorHex": "#FFF59E0B", "align": "left" }
+    ]
+  },
+  {
+    "id": "layout_08",
+    "name": "Umrah Package",
+    "overlay": { "type": "gradient", "fromHex": "#33000000", "toHex": "#DD064E3B" },
+    "layers": [
+      { "type": "text", "role": "title", "x": 0.06, "y": 0.08, "width": 0.88, "height": 0.15, "fontSizeFactor": 0.09, "colorHex": "#FFFFFFFF", "bold": true, "align": "center" },
+      { "type": "text", "role": "subtitle", "x": 0.1, "y": 0.23, "width": 0.8, "height": 0.06, "fontSizeFactor": 0.04, "colorHex": "#FFFDE68A", "align": "center" },
+      { "type": "icon", "role": "none", "iconName": "hotel", "x": 0.12, "y": 0.52, "width": 0.12, "height": 0.12, "colorHex": "#FFF59E0B" },
+      { "type": "icon", "role": "none", "iconName": "flight", "x": 0.44, "y": 0.52, "width": 0.12, "height": 0.12, "colorHex": "#FFF59E0B" },
+      { "type": "icon", "role": "none", "iconName": "mosque", "x": 0.76, "y": 0.52, "width": 0.12, "height": 0.12, "colorHex": "#FFF59E0B" },
+      { "type": "shape", "role": "price", "shape": "rounded", "x": 0.3, "y": 0.7, "width": 0.4, "height": 0.09, "fillHex": "#FFF59E0B", "cornerRadius": 0.05 },
+      { "type": "text", "role": "price", "x": 0.3, "y": 0.712, "width": 0.4, "height": 0.06, "fontSizeFactor": 0.042, "colorHex": "#FF111827", "bold": true, "align": "center" },
+      { "type": "image", "role": "logo", "x": 0.06, "y": 0.06, "width": 0.13, "height": 0.13 },
+      { "type": "text", "role": "contact", "x": 0.06, "y": 0.9, "width": 0.88, "height": 0.05, "fontSizeFactor": 0.034, "colorHex": "#FFFFFFFF", "align": "center" }
+    ]
+  },
+  {
+    "id": "layout_09",
+    "name": "Minimal White Card",
+    "overlay": { "type": "solid", "colorHex": "#44000000" },
+    "layers": [
+      { "type": "shape", "role": "details", "shape": "rounded", "x": 0.1, "y": 0.28, "width": 0.8, "height": 0.44, "fillHex": "#F2FFFFFF", "cornerRadius": 0.05 },
+      { "type": "text", "role": "title", "x": 0.14, "y": 0.33, "width": 0.72, "height": 0.14, "fontSizeFactor": 0.08, "colorHex": "#FF111827", "bold": true, "align": "center" },
+      { "type": "text", "role": "subtitle", "x": 0.16, "y": 0.47, "width": 0.68, "height": 0.06, "fontSizeFactor": 0.04, "colorHex": "#FF6C2BD9", "align": "center" },
+      { "type": "text", "role": "details", "x": 0.16, "y": 0.54, "width": 0.68, "height": 0.12, "fontSizeFactor": 0.032, "colorHex": "#FF374151", "align": "center" },
+      { "type": "image", "role": "logo", "x": 0.44, "y": 0.16, "width": 0.12, "height": 0.12 },
+      { "type": "text", "role": "contact", "x": 0.1, "y": 0.88, "width": 0.8, "height": 0.05, "fontSizeFactor": 0.032, "colorHex": "#FFFFFFFF", "align": "center" }
+    ]
+  },
+  {
+    "id": "layout_10",
+    "name": "Luxury Black Gold",
+    "overlay": { "type": "gradient", "fromHex": "#CC000000", "toHex": "#EE000000" },
+    "layers": [
+      { "type": "shape", "role": "overlay", "shape": "border", "x": 0.06, "y": 0.06, "width": 0.88, "height": 0.88, "fillHex": "#FFD4AF37", "cornerRadius": 0.01 },
+      { "type": "text", "role": "subtitle", "x": 0.1, "y": 0.2, "width": 0.8, "height": 0.06, "fontSizeFactor": 0.038, "colorHex": "#FFD4AF37", "align": "center", "letterSpacing": 6 },
+      { "type": "text", "role": "title", "x": 0.08, "y": 0.42, "width": 0.84, "height": 0.2, "fontSizeFactor": 0.12, "colorHex": "#FFFFFFFF", "bold": true, "align": "center" },
+      { "type": "text", "role": "details", "x": 0.14, "y": 0.64, "width": 0.72, "height": 0.1, "fontSizeFactor": 0.032, "colorHex": "#FFE5E7EB", "align": "center" },
+      { "type": "image", "role": "logo", "x": 0.44, "y": 0.76, "width": 0.12, "height": 0.12 }
+    ]
+  },
+  {
+    "id": "layout_11",
+    "name": "Sale Discount Circle",
+    "overlay": { "type": "gradient", "fromHex": "#33000000", "toHex": "#CC7C2D12" },
+    "layers": [
+      { "type": "shape", "role": "price", "shape": "circle", "x": 0.55, "y": 0.08, "width": 0.38, "height": 0.38, "fillHex": "#FFEF4444" },
+      { "type": "text", "role": "price", "x": 0.55, "y": 0.2, "width": 0.38, "height": 0.14, "fontSizeFactor": 0.075, "colorHex": "#FFFFFFFF", "bold": true, "align": "center" },
+      { "type": "text", "role": "title", "x": 0.06, "y": 0.55, "width": 0.88, "height": 0.18, "fontSizeFactor": 0.11, "colorHex": "#FFFFFFFF", "bold": true, "align": "left" },
+      { "type": "text", "role": "subtitle", "x": 0.06, "y": 0.73, "width": 0.8, "height": 0.07, "fontSizeFactor": 0.045, "colorHex": "#FFFDE68A", "align": "left" },
+      { "type": "image", "role": "logo", "x": 0.06, "y": 0.06, "width": 0.14, "height": 0.14 },
+      { "type": "text", "role": "contact", "x": 0.06, "y": 0.9, "width": 0.88, "height": 0.05, "fontSizeFactor": 0.034, "colorHex": "#FFFFFFFF", "align": "left" }
+    ]
+  },
+  {
+    "id": "layout_12",
+    "name": "Announcement Clean",
+    "overlay": { "type": "gradient", "fromHex": "#EE1E40AF", "toHex": "#CC0F172A" },
+    "layers": [
+      { "type": "shape", "role": "overlay", "shape": "rect", "x": 0.0, "y": 0.0, "width": 1.0, "height": 0.16, "fillHex": "#FF111827" },
+      { "type": "text", "role": "title", "x": 0.06, "y": 0.03, "width": 0.88, "height": 0.1, "fontSizeFactor": 0.06, "colorHex": "#FFFFFFFF", "bold": true, "align": "center" },
+      { "type": "text", "role": "subtitle", "x": 0.1, "y": 0.35, "width": 0.8, "height": 0.1, "fontSizeFactor": 0.06, "colorHex": "#FFFDE68A", "bold": true, "align": "center" },
+      { "type": "text", "role": "details", "x": 0.12, "y": 0.5, "width": 0.76, "height": 0.2, "fontSizeFactor": 0.035, "colorHex": "#FFFFFFFF", "align": "center" },
+      { "type": "shape", "role": "contact", "shape": "rect", "x": 0.0, "y": 0.9, "width": 1.0, "height": 0.1, "fillHex": "#FF6C2BD9" },
+      { "type": "text", "role": "contact", "x": 0.06, "y": 0.925, "width": 0.88, "height": 0.05, "fontSizeFactor": 0.036, "colorHex": "#FFFFFFFF", "align": "center" }
+    ]
+  },
+  {
+    "id": "layout_13",
+    "name": "Reel Cover Vertical",
+    "overlay": { "type": "gradient", "fromHex": "#99000000", "toHex": "#DD6C2BD9" },
+    "layers": [
+      { "type": "image", "role": "logo", "x": 0.42, "y": 0.06, "width": 0.16, "height": 0.1 },
+      { "type": "text", "role": "subtitle", "x": 0.1, "y": 0.42, "width": 0.8, "height": 0.05, "fontSizeFactor": 0.035, "colorHex": "#FFFDE68A", "align": "center", "letterSpacing": 3 },
+      { "type": "text", "role": "title", "x": 0.06, "y": 0.48, "width": 0.88, "height": 0.22, "fontSizeFactor": 0.11, "colorHex": "#FFFFFFFF", "bold": true, "align": "center" },
+      { "type": "text", "role": "details", "x": 0.12, "y": 0.72, "width": 0.76, "height": 0.1, "fontSizeFactor": 0.032, "colorHex": "#FFF3F4F6", "align": "center" },
+      { "type": "text", "role": "contact", "x": 0.06, "y": 0.92, "width": 0.88, "height": 0.05, "fontSizeFactor": 0.03, "colorHex": "#FFFFFFFF", "align": "center" }
+    ]
+  },
+  {
+    "id": "layout_14",
+    "name": "Facebook Wide",
+    "overlay": { "type": "gradient", "fromHex": "#EE111827", "toHex": "#00111827" },
+    "layers": [
+      { "type": "text", "role": "title", "x": 0.05, "y": 0.22, "width": 0.55, "height": 0.3, "fontSizeFactor": 0.11, "colorHex": "#FFFFFFFF", "bold": true, "align": "left" },
+      { "type": "text", "role": "subtitle", "x": 0.05, "y": 0.55, "width": 0.5, "height": 0.12, "fontSizeFactor": 0.05, "colorHex": "#FFF59E0B", "align": "left" },
+      { "type": "text", "role": "contact", "x": 0.05, "y": 0.82, "width": 0.55, "height": 0.1, "fontSizeFactor": 0.04, "colorHex": "#FFFFFFFF", "align": "left" },
+      { "type": "image", "role": "logo", "x": 0.05, "y": 0.08, "width": 0.1, "height": 0.14 }
+    ]
+  },
+  {
+    "id": "layout_15",
+    "name": "A4 Flyer",
+    "overlay": { "type": "gradient", "fromHex": "#33000000", "toHex": "#CC000000" },
+    "layers": [
+      { "type": "text", "role": "title", "x": 0.08, "y": 0.06, "width": 0.84, "height": 0.14, "fontSizeFactor": 0.08, "colorHex": "#FFFFFFFF", "bold": true, "align": "center" },
+      { "type": "text", "role": "subtitle", "x": 0.1, "y": 0.2, "width": 0.8, "height": 0.06, "fontSizeFactor": 0.04, "colorHex": "#FFFDE68A", "align": "center" },
+      { "type": "shape", "role": "details", "shape": "rounded", "x": 0.08, "y": 0.35, "width": 0.84, "height": 0.4, "fillHex": "#AA111827", "cornerRadius": 0.03 },
+      { "type": "text", "role": "details", "x": 0.12, "y": 0.38, "width": 0.76, "height": 0.32, "fontSizeFactor": 0.033, "colorHex": "#FFFFFFFF", "align": "left" },
+      { "type": "shape", "role": "contact", "shape": "rect", "x": 0.0, "y": 0.9, "width": 1.0, "height": 0.1, "fillHex": "#CC6C2BD9" },
+      { "type": "text", "role": "contact", "x": 0.06, "y": 0.925, "width": 0.88, "height": 0.05, "fontSizeFactor": 0.032, "colorHex": "#FFFFFFFF", "align": "center" }
+    ]
+  }
+]
