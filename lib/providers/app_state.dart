@@ -24,11 +24,16 @@ class AppState extends ChangeNotifier {
   Future<void> bootstrap() async {
     _loading = true;
     notifyListeners();
-    _brand = await _storage.loadBrand();
-    _exportQuality = await _storage.exportQuality();
-    _defaultSize = await _storage.defaultExportSize();
-    _loading = false;
-    notifyListeners();
+    try {
+      _brand = await _storage.loadBrand();
+      _exportQuality = await _storage.exportQuality();
+      _defaultSize = await _storage.defaultExportSize();
+    } catch (e) {
+      debugPrint('AppState.bootstrap: $e');
+    } finally {
+      _loading = false;
+      notifyListeners();
+    }
   }
 
   Future<void> saveBrand(BrandProfileModel profile) async {

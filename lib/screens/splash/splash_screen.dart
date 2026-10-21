@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_constants.dart';
 import '../../providers/app_state.dart';
+import '../../services/app_open_ad_service.dart';
 import '../../services/home_bootstrap.dart';
 import '../home/home_shell.dart';
 
@@ -42,21 +43,30 @@ class _AppEntryState extends State<AppEntry> with SingleTickerProviderStateMixin
 
   Future<void> _prepareAndGo() async {
     final started = DateTime.now();
-    final appState = context.read<AppState>();
-
-    while (appState.loading) {
-      await Future.delayed(const Duration(milliseconds: 40));
-      if (!mounted) return;
-    }
-
+    // Full 8s for the first app-open fill. Home preload must not shrink this.
+    final openAd = AppOpenAdManager.instance.showAdIfAvailable(
+      loadTimeout: const Duration(seconds: 8),
+    );
     try {
-      await HomeBootstrap.preload(appState);
-    } catch (_) {}
+      final appState = context.read<AppState>();
 
-    final elapsed = DateTime.now().difference(started);
-    if (elapsed < _minDisplay) {
-      await Future.delayed(_minDisplay - elapsed);
-    }
+      while (appState.loading) {
+        await Future.delayed(const Duration(milliseconds: 40));
+        if (!mounted) return;
+      }
+
+      try {
+        await HomeBootstrap.preload(appState);
+      } catch (_) {}
+
+      final elapsed = DateTime.now().difference(started);
+      if (elapsed < _minDisplay) {
+        await Future.delayed(_minDisplay - elapsed);
+      }
+      if (!mounted) return;
+
+      await openAd;
+    } catch (_) {}
     if (!mounted) return;
 
     setState(() => _showHome = true);

@@ -18,6 +18,7 @@ import '../../services/design_history_service.dart';
 import '../../services/export_service.dart';
 import '../../services/stock_image.dart';
 import '../../services/template_generator_service.dart';
+import '../../widgets/banner_ad_widget.dart';
 import '../../widgets/color_swatch_picker.dart';
 import '../../widgets/loading_skeleton.dart';
 import '../background/background_change_screen.dart';
@@ -58,6 +59,7 @@ class _PosterEditorScreenState extends State<PosterEditorScreen> {
   String? _historyId;
   String _title = '';
   bool _saving = false;
+  bool _openFailed = false;
   ExportSize _size = ExportSize.instagramPost;
 
   bool _textEditMode = false;
@@ -79,33 +81,42 @@ class _PosterEditorScreenState extends State<PosterEditorScreen> {
   }
 
   Future<void> _init() async {
-    final appState = context.read<AppState>();
-    _size = appState.defaultSize;
+    try {
+      final appState = context.read<AppState>();
+      _size = appState.defaultSize;
 
-    PosterDesign design;
-    if (widget.savedDesign != null) {
-      final s = widget.savedDesign!;
-      design = s.design;
-      _categoryId = s.categoryId;
-      _categoryName = s.categoryName;
-      _historyId = s.id;
-      _title = s.title;
-      _size = _closestSize(design.aspectRatio);
-    } else {
-      final t = widget.template!;
-      _categoryId = t.categoryId;
-      _categoryName = widget.category?.name ?? '';
-      design = await TemplateGeneratorService.instance.buildDesign(
-        t,
-        brand: appState.brand,
-        aspectRatio: _size.aspectRatio,
-      );
+      final PosterDesign design;
+      if (widget.savedDesign != null) {
+        final s = widget.savedDesign!;
+        design = s.design;
+        _categoryId = s.categoryId;
+        _categoryName = s.categoryName;
+        _historyId = s.id;
+        _title = s.title;
+        _size = _closestSize(design.aspectRatio);
+      } else {
+        final t = widget.template;
+        if (t == null) throw StateError('No poster to open.');
+        _categoryId = t.categoryId;
+        _categoryName = widget.category?.name ?? '';
+        design = await TemplateGeneratorService.instance.buildDesign(
+          t,
+          brand: appState.brand,
+          aspectRatio: _size.aspectRatio,
+        );
+      }
+      if (!mounted) return;
+      setState(() {
+        _controller = EditorController(design);
+        _loading = false;
+      });
+    } catch (_) {
+      if (!mounted) return;
+      setState(() {
+        _loading = false;
+        _openFailed = true;
+      });
     }
-    if (!mounted) return;
-    setState(() {
-      _controller = EditorController(design);
-      _loading = false;
-    });
   }
 
   ExportSize _closestSize(double ratio) {
@@ -788,6 +799,28 @@ class _PosterEditorScreenState extends State<PosterEditorScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (_openFailed) {
+      return Scaffold(
+        appBar: AppBar(title: const Text('Editor')),
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Text('Could not open this poster.'),
+                const SizedBox(height: 16),
+                FilledButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text('Go back'),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
+
     if (_loading || _controller == null) {
       return const Scaffold(body: LoadingView(label: 'Preparing your poster…'));
     }
@@ -856,6 +889,7 @@ class _PosterEditorScreenState extends State<PosterEditorScreen> {
           ),
           body: Column(
             children: [
+              const BannerAdWidget(),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),

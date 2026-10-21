@@ -10,6 +10,7 @@ import '../../models/category_model.dart';
 import '../../models/design_model.dart';
 import '../../models/template_model.dart';
 import '../../providers/app_state.dart';
+import '../../services/ad_service.dart';
 import '../../services/home_bootstrap.dart';
 import '../../services/template_generator_service.dart';
 import '../../widgets/empty_state.dart';
@@ -114,15 +115,20 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _openTemplate(int index) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (_) => PosterEditorScreen(
-          template: _templates[index],
-          category: _categories[_selected],
+    final template = _templates[index];
+    final category = _categories[_selected];
+    AdService.instance.showSelectInterstitialThen(() async {
+      if (!mounted) return;
+      await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => PosterEditorScreen(
+            template: template,
+            category: category,
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 
   @override
