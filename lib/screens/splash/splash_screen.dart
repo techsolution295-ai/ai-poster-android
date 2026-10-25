@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -8,6 +10,7 @@ import 'package:provider/provider.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_constants.dart';
 import '../../providers/app_state.dart';
+import '../../services/ad_service.dart';
 import '../../services/app_open_ad_service.dart';
 import '../../services/home_bootstrap.dart';
 import '../home/home_shell.dart';
@@ -43,20 +46,30 @@ class _AppEntryState extends State<AppEntry> with SingleTickerProviderStateMixin
 
   Future<void> _prepareAndGo() async {
     final started = DateTime.now();
-    // Full 8s for the first app-open fill. Home preload must not shrink this.
-    final openAd = AppOpenAdManager.instance.showAdIfAvailable(
-      loadTimeout: const Duration(seconds: 8),
-    );
+    // Policy order: consent + SDK → request app-open (8s window).
+    // Interstitial is prefetched after app-open, not shown here.
+    final adsWarmup = () async {
+      await AdService.instance.ensureReady();
+      if (AdService.instance.canRequestAds) {
+        await AppOpenAdManager.instance.loadAd();
+      }
+    }();
+
     try {
       final appState = context.read<AppState>();
 
       while (appState.loading) {
         await Future.delayed(const Duration(milliseconds: 40));
         if (!mounted) return;
+        if (DateTime.now().difference(started) > const Duration(seconds: 3)) {
+          break;
+        }
       }
 
       try {
-        await HomeBootstrap.preload(appState);
+        await HomeBootstrap.preload(appState).timeout(
+          const Duration(seconds: 3),
+        );
       } catch (_) {}
 
       final elapsed = DateTime.now().difference(started);
@@ -65,9 +78,32 @@ class _AppEntryState extends State<AppEntry> with SingleTickerProviderStateMixin
       }
       if (!mounted) return;
 
-      await openAd;
+      final spent = DateTime.now().difference(started);
+      final remaining = spent >= const Duration(seconds: 8)
+          ? Duration.zero
+          : const Duration(seconds: 8) - spent;
+
+      if (remaining > Duration.zero) {
+        try {
+          await adsWarmup.timeout(remaining);
+        } catch (_) {}
+      }
+
+      if (!mounted) return;
+      if (!AdService.instance.isPro && AdService.instance.canRequestAds) {
+        final left =
+            const Duration(seconds: 8) - DateTime.now().difference(started);
+        await AppOpenAdManager.instance.showAdIfAvailable(
+          loadTimeout: left > Duration.zero
+              ? left
+              : const Duration(milliseconds: 500),
+        );
+      }
     } catch (_) {}
     if (!mounted) return;
+
+    // After splash/app-open: warm interstitial for the next natural break.
+    unawaited(AdService.instance.prefetchInterstitial());
 
     setState(() => _showHome = true);
     await _transitionController.forward();

@@ -12,15 +12,27 @@ import 'services/app_open_ad_service.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Local database for design history.
-  await Hive.initFlutter();
+  FlutterError.onError = (details) {
+    FlutterError.presentError(details);
+  };
 
+  try {
+    await Hive.initFlutter();
+  } catch (_) {}
+
+  // Free users see ads. Premium billing is not wired yet.
+  AdService.instance.bind(isPro: () => false);
+
+  // Consent → SDK → app-open request starts early so splash has a full 8s
+  // fetch window. Interstitial is prefetched after the open ad (policy).
   if (AdService.instance.isSupported) {
-    // Start the SDK during splash. First install can take several seconds,
-    // so this must not be abandoned if it is still running.
-    unawaited(AdService.instance.ensureInitialized().then((_) {
-      unawaited(AppOpenAdManager.instance.loadAd());
-    }));
+    unawaited(
+      AdService.instance.ensureReady().then((_) {
+        if (AdService.instance.canRequestAds) {
+          unawaited(AppOpenAdManager.instance.loadAd());
+        }
+      }),
+    );
   }
 
   runApp(

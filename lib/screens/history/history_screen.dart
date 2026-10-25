@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_constants.dart';
 import '../../models/design_model.dart';
+import '../../services/ad_service.dart';
 import '../../services/design_history_service.dart';
 import '../../widgets/empty_state.dart';
 import '../../widgets/loading_skeleton.dart';
@@ -72,10 +73,14 @@ class HistoryScreenState extends State<HistoryScreen> {
   }
 
   void _open(SavedDesign d) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (_) => PosterEditorScreen(savedDesign: d)),
-    ).then((_) => _load());
+    AdService.instance.showSelectInterstitialThen(() async {
+      if (!mounted) return;
+      await Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => PosterEditorScreen(savedDesign: d)),
+      );
+      if (mounted) _load();
+    });
   }
 
   void _export(SavedDesign d) {
